@@ -1,4 +1,4 @@
-package ru.pet.multiplier.exception.token;
+package ru.pet.multiplier.exception;
 
 public class DefaultException extends RuntimeException {
     private String code;

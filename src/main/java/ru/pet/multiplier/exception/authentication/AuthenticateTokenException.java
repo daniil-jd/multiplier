@@ -1,4 +1,4 @@
-package ru.pet.multiplier.exception.token;
+package ru.pet.multiplier.exception.authentication;
 
 import ru.pet.multiplier.exception.DefaultException;
 

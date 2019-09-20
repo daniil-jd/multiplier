@@ -18,7 +18,7 @@ import java.util.Objects;
 
 @Data
 @Entity
-@Table(name = "chat_user")
+@Table(name = "app_user")
 @AllArgsConstructor
 @NoArgsConstructor
 public class UserEntity {

@@ -1,0 +1,43 @@
+POST http://localhost:8080/api/registration
+Content-Type: application/json
+
+{
+  "username": "mailfrreg@yandex.ru",
+  "password": "password"
+}
+
+###
+
+POST http://localhost:8080/api/authentication
+Content-Type: application/json
+
+{
+  "username": "mailfrreg@yandex.ru",
+  "password": "password"
+}
+
+> {%
+client.test("Request executed successfully", function() {
+  client.assert(response.status === 200, "Response status is not 200");
+  client.global.set("authenticationToken", response.body.authenticationToken)
+});
+%}
+
+###
+
+GET http://localhost:8080/api/expenses/type
+Accept: application/json
+X-Chat-Token: d0b1e875-8df2-41cc-8440-60a75a6a9c66
+
+###
+
+POST http://localhost:8080/api/expenses/type
+Content-Type: application/json
+X-Chat-Token: d0b1e875-8df2-41cc-8440-60a75a6a9c66
+
+{
+  "name": "Пятерочка",
+  "purpose": "FOOD"
+}
+
+###
