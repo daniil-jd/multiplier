@@ -3,6 +3,7 @@ package ru.pet.multiplier.entity.business.expenses;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import ru.pet.multiplier.dto.business.expenses.ExpensesResponseDto;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
@@ -28,4 +29,8 @@ public class ExpensesEntity {
     private long cost;
     private boolean paymentType;
     private Timestamp created;
+
+    public ExpensesResponseDto toDto() {
+        return new ExpensesResponseDto(expensesType, description, cost, paymentType, created);
+    }
 }

@@ -1,4 +1,4 @@
-package ru.pet.multiplier.controller.rest;
+package ru.pet.multiplier.controller.rest.business;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -10,6 +10,7 @@ import ru.pet.multiplier.dto.business.expenses_type.ExpensesTypeRequestDto;
 import ru.pet.multiplier.dto.business.expenses_type.ExpensesTypeResponseDto;
 import ru.pet.multiplier.service.impl.ExpensesTypeService;
 
+import javax.validation.Valid;
 import java.util.List;
 
 @RestController
@@ -24,7 +25,7 @@ public class ExpensesTypeController {
     }
 
     @PostMapping
-    public ExpensesTypeResponseDto createExpense(@RequestBody ExpensesTypeRequestDto dto) {
+    public ExpensesTypeResponseDto createExpense(@Valid @RequestBody ExpensesTypeRequestDto dto) {
         return service.save(dto);
     }
 

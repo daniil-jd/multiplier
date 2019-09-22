@@ -8,6 +8,6 @@ public class ExpensesTypeAlreadyExistException extends DefaultException {
     }
 
     public String getCode() {
-        return "EXPENSES_ALREADY_EXIST";
+        return "EXPENSES_TYPE_ALREADY_EXIST";
     }
 }

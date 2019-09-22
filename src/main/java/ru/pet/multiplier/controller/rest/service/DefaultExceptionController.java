@@ -1,4 +1,4 @@
-package ru.pet.multiplier.controller.rest;
+package ru.pet.multiplier.controller.rest.service;
 
 import org.springframework.boot.autoconfigure.web.servlet.error.AbstractErrorController;
 import org.springframework.boot.web.servlet.error.ErrorAttributes;

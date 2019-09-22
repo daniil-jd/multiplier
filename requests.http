@@ -27,17 +27,65 @@ client.test("Request executed successfully", function() {
 
 GET http://localhost:8080/api/expenses/type
 Accept: application/json
-X-Chat-Token: d0b1e875-8df2-41cc-8440-60a75a6a9c66
+X-Chat-Token: e0a8c6bb-7663-4091-86bc-c0acb1b657cf
 
 ###
 
 POST http://localhost:8080/api/expenses/type
 Content-Type: application/json
-X-Chat-Token: d0b1e875-8df2-41cc-8440-60a75a6a9c66
+X-Chat-Token: e0a8c6bb-7663-4091-86bc-c0acb1b657cf
 
 {
   "name": "Пятерочка",
   "purpose": "FOOD"
+}
+
+###
+
+GET http://localhost:8080/api/expenses
+Accept: application/json
+X-Chat-Token: e0a8c6bb-7663-4091-86bc-c0acb1b657cf
+
+###
+
+POST http://localhost:8080/api/expenses
+Content-Type: application/json
+X-Chat-Token: e0a8c6bb-7663-4091-86bc-c0acb1b657cf
+
+{
+  "expensesType": "Пятерочка",
+  "description": "test",
+  "cost": 30100,
+  "paymentType": true,
+  "created": 1569085390
+}
+
+###
+
+POST http://localhost:8080/api/expenses/calculate
+Content-Type: application/json
+X-Chat-Token: 0c09b08c-a7d7-49dc-86c7-2de504955f69
+
+{
+  "filterBy": "Пятерочка",
+  "period": {
+    "from": "1970-01-19 06:51:25.389000",
+    "till": "1970-01-19 06:51:25.390000"
+  }
+}
+
+###
+
+POST http://localhost:8080/api/expenses/calculate
+Content-Type: application/json
+X-Chat-Token: 0c09b08c-a7d7-49dc-86c7-2de504955f69
+
+{
+  "filterBy": "FOOD",
+  "period": {
+    "from": "1970-01-19 06:51:25.389000",
+    "till": "1970-01-19 06:51:25.390000"
+  }
 }
 
 ###

@@ -1,4 +1,4 @@
-package ru.pet.multiplier.controller.rest;
+package ru.pet.multiplier.controller.rest.service;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
