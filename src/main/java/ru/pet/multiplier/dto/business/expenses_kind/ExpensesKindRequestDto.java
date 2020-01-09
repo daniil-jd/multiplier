@@ -1,4 +1,4 @@
-package ru.pet.multiplier.dto.business.expenses_type;
+package ru.pet.multiplier.dto.business.expenses_kind;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -9,7 +9,7 @@ import javax.validation.constraints.NotNull;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class ExpensesTypeRequestDto {
+public class ExpensesKindRequestDto {
     @NotNull
     private String name;
     @NotNull

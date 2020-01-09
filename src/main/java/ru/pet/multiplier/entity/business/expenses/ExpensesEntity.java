@@ -23,14 +23,15 @@ public class ExpensesEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
+    private String name;
     @ManyToOne(cascade = {CascadeType.MERGE})
-    private ExpensesTypeEntity expensesType;
+    private ExpensesKindEntity expensesKind;
     private String description;
     private long cost;
     private boolean paymentType;
     private Timestamp created;
 
     public ExpensesResponseDto toDto() {
-        return new ExpensesResponseDto(expensesType, description, cost, paymentType, created);
+        return new ExpensesResponseDto(name, expensesKind, description, cost, paymentType, created);
     }
 }

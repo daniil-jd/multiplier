@@ -3,7 +3,7 @@ package ru.pet.multiplier.entity.business.expenses;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import ru.pet.multiplier.dto.business.expenses_type.ExpensesTypeResponseDto;
+import ru.pet.multiplier.dto.business.expenses_kind.ExpensesKindResponseDto;
 
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
@@ -12,18 +12,18 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "expenses_type")
+@Table(name = "expenses_kind")
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class ExpensesTypeEntity {
+public class ExpensesKindEntity {
     @Id
-    private String name;
+    private String kind;
     private String icon;
     @Enumerated(EnumType.ORDINAL)
-    private ExpensesPurpose purpose;
+    private ExpensesCategory category;
 
-    public ExpensesTypeResponseDto toDto() {
-        return new ExpensesTypeResponseDto(name, purpose);
+    public ExpensesKindResponseDto toDto() {
+        return new ExpensesKindResponseDto(kind, category);
     }
 }

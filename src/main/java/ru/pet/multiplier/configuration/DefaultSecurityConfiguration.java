@@ -4,7 +4,6 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.http.HttpMethod;
-import org.springframework.scheduling.annotation.EnableScheduling;
 import org.springframework.security.config.annotation.method.configuration.EnableGlobalMethodSecurity;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
@@ -41,7 +40,7 @@ public class DefaultSecurityConfiguration extends WebSecurityConfigurerAdapter {
                 .antMatchers(HttpMethod.POST, "/api/registration").anonymous()
                 .antMatchers(HttpMethod.GET, "/api/registration/confirmation").anonymous()
                 .antMatchers(HttpMethod.POST, "/api/recovery", "/api/recovery/confirmation*").anonymous()
-                .antMatchers(HttpMethod.GET, "/*").anonymous()
+//                .antMatchers(HttpMethod.GET, "/*").anonymous()
                 .antMatchers("/swagger-ui.html", "/webjars/**", "/swagger-resources/**", "/v2/**").permitAll()
 
                 .antMatchers("/api/users").authenticated()

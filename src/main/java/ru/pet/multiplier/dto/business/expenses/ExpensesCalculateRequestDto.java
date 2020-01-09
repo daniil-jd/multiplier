@@ -11,5 +11,6 @@ import org.springframework.lang.NonNull;
 public class ExpensesCalculateRequestDto {
     @NonNull
     private String filterBy;
+    private boolean details;
     private PeriodExpenses period;
 }

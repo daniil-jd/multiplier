@@ -25,18 +25,18 @@ client.test("Request executed successfully", function() {
 
 ###
 
-GET http://localhost:8080/api/expenses/type
+GET http://localhost:8080/api/expenses/kind
 Accept: application/json
-X-Chat-Token: e0a8c6bb-7663-4091-86bc-c0acb1b657cf
+X-Chat-Token: f2e254cc-e23a-4537-b502-457c2301af5a
 
 ###
 
-POST http://localhost:8080/api/expenses/type
+POST http://localhost:8080/api/expenses/kind
 Content-Type: application/json
-X-Chat-Token: e0a8c6bb-7663-4091-86bc-c0acb1b657cf
+X-Chat-Token: f2e254cc-e23a-4537-b502-457c2301af5a
 
 {
-  "name": "Пятерочка",
+  "name": "Супермаркет2",
   "purpose": "FOOD"
 }
 
@@ -44,16 +44,17 @@ X-Chat-Token: e0a8c6bb-7663-4091-86bc-c0acb1b657cf
 
 GET http://localhost:8080/api/expenses
 Accept: application/json
-X-Chat-Token: e0a8c6bb-7663-4091-86bc-c0acb1b657cf
+X-Chat-Token: f2e254cc-e23a-4537-b502-457c2301af5a
 
 ###
 
 POST http://localhost:8080/api/expenses
 Content-Type: application/json
-X-Chat-Token: e0a8c6bb-7663-4091-86bc-c0acb1b657cf
+X-Chat-Token: f2e254cc-e23a-4537-b502-457c2301af5a
 
 {
-  "expensesType": "Пятерочка",
+  "name": "Пятерочка",
+  "expensesKind": "Супермаркет",
   "description": "test",
   "cost": 30100,
   "paymentType": true,
@@ -64,10 +65,39 @@ X-Chat-Token: e0a8c6bb-7663-4091-86bc-c0acb1b657cf
 
 POST http://localhost:8080/api/expenses/calculate
 Content-Type: application/json
-X-Chat-Token: 0c09b08c-a7d7-49dc-86c7-2de504955f69
+X-Chat-Token: f2e254cc-e23a-4537-b502-457c2301af5a
 
 {
   "filterBy": "Пятерочка",
+  "period": {
+    "from": "1569085390",
+    "till": "1569085392"
+  }
+}
+
+###
+
+POST http://localhost:8080/api/expenses/calculate
+Content-Type: application/json
+X-Chat-Token: f2e254cc-e23a-4537-b502-457c2301af5a
+
+{
+  "filterBy": "FOOD",
+  "period": {
+    "from": "1569085390",
+    "till": "1569085392"
+  }
+}
+
+###
+
+POST http://localhost:8080/api/expenses/calculate
+Content-Type: application/json
+X-Chat-Token: f2e254cc-e23a-4537-b502-457c2301af5a
+
+{
+  "filterBy": "FOOD",
+  "details": true,
   "period": {
     "from": "1970-01-19 06:51:25.389000",
     "till": "1970-01-19 06:51:25.390000"
@@ -76,16 +106,20 @@ X-Chat-Token: 0c09b08c-a7d7-49dc-86c7-2de504955f69
 
 ###
 
-POST http://localhost:8080/api/expenses/calculate
+POST http://localhost:8080/api/income
 Content-Type: application/json
-X-Chat-Token: 0c09b08c-a7d7-49dc-86c7-2de504955f69
+X-Chat-Token: 18336a9c-442d-46d8-9bcb-0d9612e8544b
 
 {
-  "filterBy": "FOOD",
-  "period": {
-    "from": "1970-01-19 06:51:25.389000",
-    "till": "1970-01-19 06:51:25.390000"
-  }
+  "name": "Зачисление зарплаты",
+  "category": "SALARY",
+  "cost": "4000000"
 }
+
+###
+
+GET http://localhost:8080/api/income?from=&till=
+Accept: application/json
+X-Chat-Token: 18336a9c-442d-46d8-9bcb-0d9612e8544b
 
 ###
