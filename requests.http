@@ -7,6 +7,7 @@ Content-Type: application/json
 }
 
 ###
+#{"authenticationToken":"e7ab9067-ec1a-42a7-be52-fa97a797e843"}
 
 POST http://localhost:8080/api/authentication
 Content-Type: application/json
@@ -27,30 +28,36 @@ client.test("Request executed successfully", function() {
 
 GET http://localhost:8080/api/expenses/kind
 Accept: application/json
-X-Chat-Token: f2e254cc-e23a-4537-b502-457c2301af5a
+X-Chat-Token: e7ab9067-ec1a-42a7-be52-fa97a797e843
+
+###
+
+GET http://localhost:8080/api/expenses/kind
+Accept: application/json
+X-Chat-Token: 1ee2f234-070a-4451-b9e6-5d2f316ee705
 
 ###
 
 POST http://localhost:8080/api/expenses/kind
 Content-Type: application/json
-X-Chat-Token: f2e254cc-e23a-4537-b502-457c2301af5a
+X-Chat-Token: 1d982c87-8963-4bc5-893d-526e87eb452d
 
 {
-  "name": "Супермаркет2",
-  "purpose": "FOOD"
+  "name": "Кафе",
+  "purpose": "SERVICE"
 }
 
 ###
 
 GET http://localhost:8080/api/expenses
 Accept: application/json
-X-Chat-Token: f2e254cc-e23a-4537-b502-457c2301af5a
+X-Chat-Token: 9c0f1e18-68d8-4d1e-9658-d9a7b1fcb8e8
 
 ###
 
 POST http://localhost:8080/api/expenses
 Content-Type: application/json
-X-Chat-Token: f2e254cc-e23a-4537-b502-457c2301af5a
+X-Chat-Token: eb7bb8f6-5977-4626-9c28-36aea8076707
 
 {
   "name": "Пятерочка",
@@ -60,6 +67,27 @@ X-Chat-Token: f2e254cc-e23a-4537-b502-457c2301af5a
   "paymentType": true,
   "created": 1569085390
 }
+
+###
+
+POST http://localhost:8080/api/expenses
+Content-Type: application/json
+X-Chat-Token: 9c0f1e18-68d8-4d1e-9658-d9a7b1fcb8e8
+
+{
+  "name": "Трата",
+  "expensesKind": "FOOD",
+  "description": "test",
+  "cost": 600,
+  "paymentType": true,
+  "created": 1569085390
+}
+
+###
+
+GET http://localhost:8080/api/expenses/period?dateFrom=01.02.2020
+Content-Type: application/json
+X-Chat-Token: 5c1ce583-d68e-4467-8ea6-06402e1a1070
 
 ###
 

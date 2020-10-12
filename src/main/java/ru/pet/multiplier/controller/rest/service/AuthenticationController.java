@@ -9,6 +9,8 @@ import ru.pet.multiplier.dto.service.authentication.AuthenticationTokenRequestDt
 import ru.pet.multiplier.dto.service.authentication.AuthenticationTokenResponseDto;
 import ru.pet.multiplier.service.impl.AuthenticationService;
 
+import javax.validation.Valid;
+
 @RestController
 @RequestMapping("/api/authentication")
 @RequiredArgsConstructor
@@ -16,7 +18,7 @@ public class AuthenticationController {
     private final AuthenticationService service;
 
     @PostMapping
-    public AuthenticationTokenResponseDto authenticate(@RequestBody AuthenticationTokenRequestDto dto) {
+    public AuthenticationTokenResponseDto authenticate(@Valid @RequestBody AuthenticationTokenRequestDto dto) {
         return service.authenticate(dto);
     }
 }

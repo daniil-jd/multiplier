@@ -43,6 +43,12 @@ public class ExpensesService {
                 ).collect(Collectors.toList());
     }
 
+    public List<ExpensesResponseDto> getAllExpensesInPeriod(String dateFrom, String dateTo) {
+        var from = DataService.parseTimestamp(dateFrom, true);
+        var till = DataService.parseTimestamp(dateTo, false);
+        return getAllIncomeInPeriod(from, till);
+    }
+
     public List<ExpensesResponseDto> getAllIncomeInPeriod(Timestamp from, Timestamp till) {
         var fromT = Timestamp.from(Instant.ofEpochMilli(1546300800));
         var tillT = Timestamp.valueOf(LocalDateTime.now());
