@@ -1,0 +1,36 @@
+databaseChangeLog:
+  - changeSet:
+      id: add_telegram_user_table
+      author: daniil_zharnov
+      preConditions:
+        onFail: MARK_RAN
+        onFailMessage: Table telegram_user already exists
+        not:
+          tableExists:
+            tableName: telegram_user
+      changes:
+        - createTable:
+            tableName: telegram_user
+            columns:
+              - column:
+                  name: id
+                  type: uuid
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+              - column:
+                  name: telegram_user_id
+                  type: int8
+                  constraints:
+                    nullable: false
+              - column:
+                  name: username
+                  type: text
+                  constraints:
+                    nullable: false
+        - createIndex:
+            tableName: telegram_user
+            columns:
+              - column:
+                  name: telegram_user_id
+            indexName: telegram_user_id_idx
