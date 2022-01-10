@@ -22,5 +22,5 @@ public class Indexes {
     // INDEX definitions
     // -------------------------------------------------------------------------
 
-    public static final Index TELEGRAM_USER_ID_IDX = Internal.createIndex(DSL.name("telegram_user_id_idx"), TelegramUser.TELEGRAM_USER, new OrderField[] { TelegramUser.TELEGRAM_USER.TELEGRAM_USER_ID }, false);
+    public static final Index TELEGRAM_USER_ID_IDX = Internal.createIndex(DSL.name("telegram_user_id_idx"), TelegramUser.TELEGRAM_USER, new OrderField[] { TelegramUser.TELEGRAM_USER.TELEGRAM_USER_ID }, true);
 }

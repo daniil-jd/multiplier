@@ -13,3 +13,8 @@ spring:
     hikari:
       minimum-idle: 5
       maximum-pool-size: 10
+
+
+org:
+  jooq:
+    no-logo: true

@@ -20,7 +20,7 @@ class JwtProviderService {
         return Jwts.builder()
             .setSubject(login)
             .setExpiration(expirationDate)
-            .signWith(SignatureAlgorithm.ES512, jwtSecret)
+            .signWith(SignatureAlgorithm.HS512, jwtSecret)
             .compact()
     }
 

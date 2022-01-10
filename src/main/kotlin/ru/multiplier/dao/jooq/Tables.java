@@ -4,6 +4,7 @@
 package ru.multiplier.dao.jooq;
 
 
+import ru.multiplier.dao.jooq.tables.ExpenseCategory;
 import ru.multiplier.dao.jooq.tables.TelegramUser;
 
 
@@ -12,6 +13,11 @@ import ru.multiplier.dao.jooq.tables.TelegramUser;
  */
 @SuppressWarnings({ "all", "unchecked", "rawtypes" })
 public class Tables {
+
+    /**
+     * The table <code>public.expense_category</code>.
+     */
+    public static final ExpenseCategory EXPENSE_CATEGORY = ExpenseCategory.EXPENSE_CATEGORY;
 
     /**
      * The table <code>public.telegram_user</code>.

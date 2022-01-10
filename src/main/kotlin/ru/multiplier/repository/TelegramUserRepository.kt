@@ -21,15 +21,18 @@ class TelegramUserRepository(
         return request.fetchOptionalInto(TelegramUser.TELEGRAM_USER)
     }
 
-    fun create(username: String, userId: Long): TelegramUserRecord {
+    fun create(username: String, userId: Long): Optional<TelegramUserRecord> {
         val result = TelegramUserRecord(UUID.randomUUID(), userId, username)
 
         val insert = dsl
             .insertInto(TelegramUser.TELEGRAM_USER)
             .set(result)
-        insert.returning().fetchOne()
-
-        return result
+        val insertResult = insert.onConflictDoNothing().returning().fetchOne()
+        return if (insertResult != null) {
+            Optional.of(result)
+        } else {
+            Optional.empty()
+        }
     }
 
 }

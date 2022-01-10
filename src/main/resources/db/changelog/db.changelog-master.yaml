@@ -2,4 +2,7 @@ databaseChangeLog:
   - include:
       file: changes/V1.1__user_table.yaml
       relativeToChangelogFile: true
+  - include:
+      file: changes/V1.2__expense_category_table.yaml
+      relativeToChangelogFile: true
 

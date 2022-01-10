@@ -9,7 +9,9 @@ import org.jooq.UniqueKey;
 import org.jooq.impl.DSL;
 import org.jooq.impl.Internal;
 
+import ru.multiplier.dao.jooq.tables.ExpenseCategory;
 import ru.multiplier.dao.jooq.tables.TelegramUser;
+import ru.multiplier.dao.jooq.tables.records.ExpenseCategoryRecord;
 import ru.multiplier.dao.jooq.tables.records.TelegramUserRecord;
 
 
@@ -24,5 +26,7 @@ public class Keys {
     // UNIQUE and PRIMARY KEY definitions
     // -------------------------------------------------------------------------
 
+    public static final UniqueKey<ExpenseCategoryRecord> EXPENSE_CATEGORY_NAME_KEY = Internal.createUniqueKey(ExpenseCategory.EXPENSE_CATEGORY, DSL.name("expense_category_name_key"), new TableField[] { ExpenseCategory.EXPENSE_CATEGORY.NAME }, true);
+    public static final UniqueKey<ExpenseCategoryRecord> EXPENSE_CATEGORY_PKEY = Internal.createUniqueKey(ExpenseCategory.EXPENSE_CATEGORY, DSL.name("expense_category_pkey"), new TableField[] { ExpenseCategory.EXPENSE_CATEGORY.ID }, true);
     public static final UniqueKey<TelegramUserRecord> TELEGRAM_USER_PKEY = Internal.createUniqueKey(TelegramUser.TELEGRAM_USER, DSL.name("telegram_user_pkey"), new TableField[] { TelegramUser.TELEGRAM_USER.ID }, true);
 }

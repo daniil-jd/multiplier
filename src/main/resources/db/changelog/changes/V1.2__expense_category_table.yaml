@@ -1,16 +1,16 @@
 databaseChangeLog:
   - changeSet:
-      id: add_telegram_user_table
+      id: add_expense_category_table
       author: daniil_zharnov
       preConditions:
         onFail: MARK_RAN
-        onFailMessage: Table telegram_user already exists
+        onFailMessage: Table expense_category already exists
         not:
           tableExists:
-            tableName: telegram_user
+            tableName: expense_category
       changes:
         - createTable:
-            tableName: telegram_user
+            tableName: expense_category
             columns:
               - column:
                   name: id
@@ -19,19 +19,14 @@ databaseChangeLog:
                     primaryKey: true
                     nullable: false
               - column:
-                  name: telegram_user_id
-                  type: int8
-                  constraints:
-                    nullable: false
-              - column:
-                  name: username
+                  name: name
                   type: text
                   constraints:
                     nullable: false
-        - createIndex:
-            tableName: telegram_user
-            columns:
+                    unique: true
               - column:
-                  name: telegram_user_id
-            indexName: telegram_user_id_idx
-            unique: true
+                  name: category
+                  type: text
+                  constraints:
+                    nullable: false
+                    unique: false

@@ -11,6 +11,7 @@ import org.jooq.Catalog;
 import org.jooq.Table;
 import org.jooq.impl.SchemaImpl;
 
+import ru.multiplier.dao.jooq.tables.ExpenseCategory;
 import ru.multiplier.dao.jooq.tables.TelegramUser;
 
 
@@ -26,6 +27,11 @@ public class Public extends SchemaImpl {
      * The reference instance of <code>public</code>
      */
     public static final Public PUBLIC = new Public();
+
+    /**
+     * The table <code>public.expense_category</code>.
+     */
+    public final ExpenseCategory EXPENSE_CATEGORY = ExpenseCategory.EXPENSE_CATEGORY;
 
     /**
      * The table <code>public.telegram_user</code>.
@@ -48,6 +54,7 @@ public class Public extends SchemaImpl {
     @Override
     public final List<Table<?>> getTables() {
         return Arrays.<Table<?>>asList(
+            ExpenseCategory.EXPENSE_CATEGORY,
             TelegramUser.TELEGRAM_USER);
     }
 }

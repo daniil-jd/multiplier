@@ -12,12 +12,15 @@
 	<artifactId>multiplier</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>multiplier</name>
-	<description>Demo project for Spring Boot</description>
+
 	<properties>
 		<java.version>1.8</java.version>
 		<kotlin.version>1.6.0</kotlin.version>
 		<jooq.version>3.14.15</jooq.version>
+		<logbook.version>2.14.0</logbook.version>
+		<kotlin-logging.version>2.1.21</kotlin-logging.version>
 	</properties>
+
 	<dependencies>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
@@ -87,6 +90,17 @@
 			<version>0.9.1</version>
 		</dependency>
 
+		<dependency>
+			<groupId>org.zalando</groupId>
+			<artifactId>logbook-spring-boot-starter</artifactId>
+			<version>${logbook.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>io.github.microutils</groupId>
+			<artifactId>kotlin-logging</artifactId>
+			<version>${kotlin-logging.version}</version>
+		</dependency>
+
 
 	</dependencies>
 
@@ -122,20 +136,12 @@
 				<groupId>org.jooq</groupId>
 				<artifactId>jooq-codegen-maven</artifactId>
 				<version>${jooq.version}</version>
-				<executions>
-					<execution>
-						<phase>generate-sources</phase>
-						<goals>
-							<goal>generate</goal>
-						</goals>
-					</execution>
-				</executions>
 				<configuration>
 					<jdbc>  <!-- db settings -->
 						<driver>org.postgresql.Driver</driver>
-						<url>jdbc:postgresql://localhost:5432/mult-v2-db</url>
+						<url>jdbc:postgresql://localhost:5432/multiplier</url>
 						<user>postgres</user>
-						<password>postgres</password>
+						<password>123</password>
 					</jdbc>
 					<generator>
 						<database>

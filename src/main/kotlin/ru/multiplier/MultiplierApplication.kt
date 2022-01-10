@@ -8,4 +8,5 @@ class MultiplierApplication
 
 fun main(args: Array<String>) {
 	runApplication<MultiplierApplication>(*args)
+	System.setProperty("org.jooq.no-logo", "true")
 }
